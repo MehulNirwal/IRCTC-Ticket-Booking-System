@@ -1,0 +1,31 @@
+[
+  {
+    "user_id" : "1153",
+    "name" : "Mehul Nirwal",
+    "hashed_passowrd" : "Mehul@008",
+
+    "tickets_booked" : [
+      {
+        "source" : "Modinagar",
+        "destination" : "Delhi",
+        "date_of_travel" : "2025-06-28T15:30:00",
+        "train" : {
+          "train_id" : "a12",
+          "train_no" : 101,
+          "seats" : [
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0],
+            [0,0,0,0,0]
+          ],
+          "inRouteStations": {},
+          "Modinagar": "2026-06-29T14:30:00",
+          "Delhi" : "2026-06-30T15:50:00",
+         "Mathura" : "2026-06-29T18:30:00",
+          "Kota" : "2026-06-30T22:30:00",
+        }
+      }
+    ]
+  }
+
+]
