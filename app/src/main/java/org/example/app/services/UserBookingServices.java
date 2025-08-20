@@ -15,7 +15,7 @@ public class UserBookingServices {
 
     private ObjectMapper objectMapper = new ObjectMapper();  // it maps the entities of json files into camelcase
 
-    private static final String USERS_PATH = "../localDB/userData.json";
+    private static final String USERS_PATH = "app/src/main/java/org.example.app/localDB/userData.json";
 
 
     public UserBookingServices(User user1) throws IOException { // It manages the try catch scenarios
