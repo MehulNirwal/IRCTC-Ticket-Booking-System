@@ -56,6 +56,9 @@ public class User {
         this.hashedPassword=hashedPassword;
     }
 
+    public String getpassword(){
+        return password;
+    }
 
 }
 
