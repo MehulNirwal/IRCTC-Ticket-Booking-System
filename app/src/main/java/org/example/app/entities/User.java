@@ -38,12 +38,6 @@ public class User {
         return ticketBooked;
     }
 
-    public void printTickets(){
-        for(int i=0;i<ticketBooked.size();i++){
-           System.out.println(ticketBooked.get(i).getTicketInfo());
-        }
-    }
-
     public String getUserId(){
         return userId;
     }
@@ -56,9 +50,14 @@ public class User {
         this.hashedPassword=hashedPassword;
     }
 
-    public String getpassword(){
-        return password;
-    }
+    public void setTicketsBooked(List<Ticket> ticketBooked) { this.ticketBooked = ticketBooked; }
 
+    public void set userId(String userId){  this.userId=userId; }
+
+    public void printTickets(){
+        for(int i=0;i<ticketBooked.size();i++){
+            System.out.println(ticketBooked.get(i).getTicketInfo());
+        }
+    }
 }
 
