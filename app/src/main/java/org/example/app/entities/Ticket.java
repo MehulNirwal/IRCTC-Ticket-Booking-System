@@ -15,6 +15,8 @@ public class Ticket {
 
     private int totalFare;
 
+    private int price;
+
     private String dateOfTravel;
 
     private Train train;
