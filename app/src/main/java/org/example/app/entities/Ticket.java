@@ -17,7 +17,6 @@ public class Ticket {
 
     private String dateOfTravel;
 
-    private String trainName;
 
     private Train train;
 
