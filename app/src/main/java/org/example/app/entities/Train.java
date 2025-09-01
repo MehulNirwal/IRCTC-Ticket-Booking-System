@@ -9,6 +9,8 @@ public class Train {
 
     private String trainNo;
 
+    private String trainName;
+
     private String trainId;
 
     private String source;
