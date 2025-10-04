@@ -1,7 +1,7 @@
 # 🚆 IRCTC Railway Ticket Booking System
 
 A **Java-based backend project** that simulates the core functionalities of the IRCTC railway ticket booking system.  
-This project demonstrates **object-oriented programming, database integration, and real-world problem solving** with a focus on train ticket booking, cancellation, and schedule management.
+This project demonstrates **object-oriented programming, database integration, and real-world problem solving** with a focus on train ticket booking, cancellation, schedule management.
 
 
 
