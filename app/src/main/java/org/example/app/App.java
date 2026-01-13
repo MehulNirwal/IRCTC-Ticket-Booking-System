@@ -3,19 +3,41 @@
  */
 package org.example.app;
 
-import org.example.list.LinkedList;
-
-import static org.example.utilities.StringUtils.join;
-import static org.example.utilities.StringUtils.split;
-import static org.example.app.MessageUtils.getMessage;
-
-import org.apache.commons.text.WordUtils;
+import org.example.app.services.UserBookingServices;
+import java.io.IOException;
+import java.util.*;
 
 public class App {
-    public static void main(String[] args) {
-        LinkedList tokens;
-        tokens = split(getMessage());
-        String result = join(tokens);
-        System.out.println(WordUtils.capitalize(result));
+    public static void main(String[] args) throws IOException {
+        System.out.println("Running Train Booking System");
+        Scanner scanner = new Scanner(System.in);
+        int option = 0;
+        UserBookingServices userBookingServices;
+        try{
+            userBookingServices = new UserBookingServices();
+        }
+        catch( IOException ex){
+            System.out.println("There is something wrong");
+            return;
+        }
+        while(option!=7){
+            System.out.println("1, SignUp");
+            System.out.println("2, login");
+            System.out.println("3, Fetch Bookings");
+            System.out.println("4, Search Trains");
+            System.out.println("5, Book a Seat");
+            System.out.println("6, Cancel my Booking");
+            System.out.println("7, Exit the App");
+            option = scanner.nextInt();
+            switch(option){
+                case 1:
+                   System.out.println("Enter the username to signUp");
+                   String nameToSignUp = scanner.next();
+                   System.out.println("Enter the password to signUp");
+                   String passwordToSignUp = scanner.next();
+                   User userToSignup = new User(nameToSignUp,passwordToSignUp,
+                           UsersServiceUtil,)
+            }
+        }
     }
 }

@@ -2,11 +2,13 @@ package org.example.app.services;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.example.app.entities.Ticket;
 import org.example.app.entities.User;
 import org.example.app.util.UserServiceUtil;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 public class UserBookingServices {
@@ -20,17 +22,20 @@ public class UserBookingServices {
     private final String USERS_PATH = "app/src/main/java/org.example.app/localDB/userData.json";
 
 
-    public UserBookingServices(User user1) throws IOException {      // It manages the try catch scenarios
+    public UserBookingServices() throws IOException {      // It manages the try catch scenarios
     this.user = user;
-    File users = new File(USERS_PATH);
-    userList = objectMapper.readValue(users,new TypeReference<List<User>>() {});
+    loadUsers();
     }
 
+    public List<User> loadUsers() throws IOException{
+        File users = new File(USERS_PATH);
+        return objectMapper.readValue(users, new TypeReference<List<User>>() {});
+    }
 
     //Method to login user
-    public Boolean loginUser(User user1){                                          // Optional is used if user is not present then it does not return null pointer-> no user found
+    public Boolean loginUser(){                                          // Optional is used if user is not present then it does not return null pointer-> no user found
         Optional<User> foundUser = userList.stream().filter(user1 ->{
-           return user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(),user1)}).findFirst();                 //user1.getName().equalIgnoreCase(user.getName())  ->> it ignores the lower and upper case of user name//
+           return user1.getName().equals(user.getName()) && UserServiceUtil.checkPassword(user.getPassword(),user1.getHashedPassword());}).findFirst();                 //user1.getName().equalIgnoreCase(user.getName())  ->> it ignores the lower and upper case of user name//
         return foundUser.isPresent();
     }
 
@@ -50,5 +55,28 @@ public class UserBookingServices {
         File usersFile = new File(USERS_PATH);
         objectMapper.writeValue(usersFile, userList);
     }
+
+    public void fetchBooking(){
+       user.printTickets();
+     }                                                     // If we extract some object from json file then it is called De-Serialize...and add some object(User) to json file then it is called Serialize//
+
+    public boolean cancelBooking(String ticketId){
+        List<Ticket> ticketsBooked = user.getTicketBooked();
+
+        if(ticketsBooked==null || ticketsBooked.isEmpty()){
+            return false; // No tickets to cancel.
+        }
+
+        Iterator<Ticket> iterator = ticketsBooked.iterator();
+        while(iterator.hasNext()){
+            Ticket ticket = iterator.next();
+            if(ticket.getTicketId().equals(ticketId)){
+                iterator.remove();
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }

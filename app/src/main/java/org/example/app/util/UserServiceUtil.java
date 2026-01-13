@@ -1,5 +1,5 @@
 package org.example.app.util;
-// All the function which can be used in all the classes are stored in java.util package
+// All the function which are used in all the classes are stored in java.util package
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UserServiceUtil {
