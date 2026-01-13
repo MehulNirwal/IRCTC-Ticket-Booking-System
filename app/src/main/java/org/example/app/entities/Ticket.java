@@ -17,6 +17,7 @@ public class Ticket {
 
     private String dateOfTravel;
 
+
     private Train train;
 
     public Ticket(String ticketId, String userId, String source, String destination, String dateOfTravel, Train train) {
